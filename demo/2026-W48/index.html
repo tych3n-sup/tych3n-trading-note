@@ -50,8 +50,7 @@ img{max-width:100%;display:block}
 b{font-weight:600}
 .wrap{width:min(var(--max),100%);margin:0 auto;padding:0 22px}
 @media(max-width:480px){
-  .wrap{padding:0 16px}
-  .nav-inner{padding:8px 12px}
+  .nav-inner{padding-top:8px;padding-bottom:8px}
   .nav a{padding:6px 8px;letter-spacing:.14em;font-size:10.5px}
   .cv-levels em{font-size:11px;max-width:none}
 }
@@ -300,6 +299,15 @@ ol.next li span{display:inline-block;width:28px;font-family:var(--display);color
 .lb.on{display:flex}
 .lb img{max-width:100%;max-height:100%;object-fit:contain;border:.5px solid var(--champ);background:#000}
 .lb-cap{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:var(--mist);font-family:var(--display);letter-spacing:.2em;font-size:11px;text-transform:uppercase}
+
+/* Narrow screens: the 880px column goes full-bleed, and .hero/.sec padding shorthand
+   zeroes wrap's side padding — so inset content here. Desktop look is unchanged. */
+@media(max-width:880px){
+  .wrap,.hero,.sec,.site-foot,.nav-inner{
+    padding-left:max(22px, env(safe-area-inset-left));
+    padding-right:max(22px, env(safe-area-inset-right));
+  }
+}
 </style>
 </head>
 <body>
