@@ -26,35 +26,72 @@
 html,body{min-height:100%;background:radial-gradient(ellipse at 50% 0%,#00432F 0%,var(--deep) 50%,var(--night) 100%) fixed;background-color:var(--night);color:var(--ivory);font-family:"TT Sans TC",Georgia,serif}
 body{padding:48px 20px 72px;padding-top:max(48px,env(safe-area-inset-top));padding-bottom:max(72px,env(safe-area-inset-bottom))}
 .wrap{width:min(440px,100%);margin:0 auto}
-.brand{text-align:center;margin-bottom:42px}
+.brand{text-align:center;margin-bottom:36px}
 .logo{width:86px;height:auto;margin:0 auto 18px;display:block}
 .m-name{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(32px,11vw,44px);letter-spacing:.46em;margin-right:-.46em;line-height:1;color:var(--ivory)}
 .m-sub{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:400;font-size:20px;color:var(--champ);margin-top:6px;letter-spacing:.06em}
 .hair{display:block;width:42px;height:1px;background:var(--champ);margin:16px auto 0;border:0}
-.sec{margin-top:28px}
-.sec-h{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:12px;letter-spacing:.16em;color:var(--champ);padding-bottom:10px;border-bottom:.5px solid var(--champ)}
-.slots{display:flex;flex-direction:column;gap:10px;margin-top:14px}
-.slot{
-  display:flex;flex-direction:column;justify-content:center;gap:4px;
-  min-height:56px;padding:14px 16px;
-  border:.5px solid var(--line-g);color:var(--ivory);text-decoration:none;
+.acc{margin-top:14px;border:.5px solid var(--champ)}
+.acc-btn{
+  appearance:none;-webkit-appearance:none;width:100%;border:0;background:transparent;cursor:pointer;
+  min-height:64px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  color:var(--ivory);text-align:left;touch-action:manipulation;-webkit-tap-highlight-color:rgba(201,161,74,.2);
+}
+.acc-k{font-family:"TT Serif TC",serif;font-weight:300;font-size:22px;letter-spacing:.12em}
+.acc-chev{display:inline-block;width:7px;height:7px;border-right:.9px solid var(--champ);border-bottom:.9px solid var(--champ);transform:rotate(45deg);margin-top:-4px;transition:transform .15s ease;flex:0 0 auto}
+.acc-btn[aria-expanded="true"] .acc-chev{transform:rotate(225deg);margin-top:2px}
+.acc-panel{border-top:.5px solid var(--line-g);padding:2px 0 8px}
+.acc-panel[hidden]{display:none}
+.acc-list{list-style:none}
+.row{
+  display:grid;grid-template-columns:2.6em 1fr;gap:10px;align-items:baseline;
+  min-height:48px;padding:12px 16px;color:var(--ivory);text-decoration:none;
+  border-top:.4px solid var(--line-g);
   touch-action:manipulation;-webkit-tap-highlight-color:rgba(201,161,74,.2);
 }
-a.slot:focus,a.slot:hover{border-color:var(--champ);color:var(--ivory)}
-.slot-soon{border-style:solid;border-color:var(--line-g);color:var(--sage);text-align:center}
-.slot-t{font-family:"TT Serif TC",serif;font-weight:300;font-size:17px;letter-spacing:.06em}
-.slot-soon .slot-t{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:13px;letter-spacing:.28em;color:var(--sage)}
-.meta{font-family:"Cormorant Garamond",Georgia,serif;font-size:12px;letter-spacing:.08em;color:var(--mist)}
-.door{
-  display:block;margin-top:14px;padding:20px 18px;min-height:88px;
-  border:.5px solid var(--champ);color:var(--ivory);text-decoration:none;
-  touch-action:manipulation;-webkit-tap-highlight-color:rgba(201,161,74,.2);
+.acc-list li:first-child .row{border-top:0}
+.row:focus,.row:hover{color:var(--ivory)}
+a.row:focus,a.row:hover{background:rgba(201,161,74,.06)}
+.num{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:14px;letter-spacing:.08em;color:var(--champ)}
+.row-t{font-family:"TT Serif TC",serif;font-weight:300;font-size:16px;letter-spacing:.03em}
+.row-soon{color:var(--sage)}
+.row-week{grid-template-columns:3.2em 6.4em 1fr auto;column-gap:8px}
+.lab{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;letter-spacing:.06em;color:var(--champ);font-size:15px}
+.date{font-family:"Cormorant Garamond",Georgia,serif;color:var(--sage);letter-spacing:.06em;font-size:12px}
+.ttl{font-family:"TT Serif TC",serif;font-weight:300;font-size:15px}
+.demo-badge{display:inline-block;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:9px;letter-spacing:.16em;color:var(--champ);border:.5px solid var(--champ);padding:2px 6px;align-self:center;white-space:nowrap}
+.acc-more{display:inline-block;margin:8px 16px 10px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);border-bottom:.4px solid var(--line-g);padding-bottom:2px;text-decoration:none;min-height:44px;line-height:44px;touch-action:manipulation}
+.acc-more:focus,.acc-more:hover{color:var(--champ)}
+#acc-live{
+  padding:0;
+  border-top:.4px solid rgba(201,161,74,.55);
+  background:
+    linear-gradient(180deg, rgba(201,161,74,.08) 0%, rgba(201,161,74,0) 32px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0) 0 3px, rgba(201,161,74,.035) 3px 4px),
+    linear-gradient(165deg, #001109 0%, #001a14 48%, #000c08 100%);
 }
-.door:focus,.door:hover{background:rgba(201,161,74,.06)}
-.door .slot-t{font-size:22px;letter-spacing:.12em}
-.door .hint{display:block;margin-top:6px;font-size:13.5px;color:var(--mist);letter-spacing:.06em}
-.door .meta{display:block;margin-top:10px;letter-spacing:.04em}
+.cat-list{list-style:none}
+.cat{
+  display:block;padding:26px 22px 24px;color:var(--ivory);text-decoration:none;
+  border-top:.4px solid rgba(201,161,74,.38);
+  touch-action:manipulation;-webkit-tap-highlight-color:rgba(201,161,74,.18);
+}
+.cat-list li:first-child .cat{border-top:0}
+.cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px}
+.cat-k{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--champ)}
+.cat-date{font-family:"Cormorant Garamond",Georgia,serif;font-size:10px;letter-spacing:.22em;color:var(--sage);white-space:nowrap}
+.cat-title{display:block;font-family:"TT Serif TC",serif;font-weight:300;font-size:clamp(19px,5.2vw,23px);letter-spacing:.08em;line-height:1.4;color:var(--ivory);margin:0 0 18px}
+.cat-go{display:inline-block;font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:11px;letter-spacing:.2em;color:var(--champ);border-bottom:.4px solid rgba(201,161,74,.5);padding-bottom:3px}
+.cat-go i{font-style:normal;margin-left:5px;letter-spacing:0}
+a.cat:focus,a.cat:hover{background:rgba(201,161,74,.04)}
+a.cat:focus .cat-go,a.cat:hover .cat-go{border-bottom-color:var(--champ)}
+.cat-soon{color:var(--mist)}
+.cat-soon .cat-title,.cat-soon .cat-go{color:var(--sage);border-bottom-color:var(--line-g)}
 .foot{text-align:center;margin-top:48px;color:var(--sage);letter-spacing:.12em;font-size:12px}
+@media(max-width:420px){
+  .row-week{grid-template-columns:3.2em 1fr auto;grid-template-areas:"lab ttl badge" "lab date badge";row-gap:2px}
+  .lab{grid-area:lab}.ttl{grid-area:ttl}.date{grid-area:date}.row-week .demo-badge{grid-area:badge}
+}
 </style>
 </head>
 <body>
@@ -65,21 +102,43 @@ a.slot:focus,a.slot:hover{border-color:var(--champ);color:var(--ivory)}
       <div class="m-sub">trading note</div>
       <i class="hair"></i>
     </header>
-    <section class="sec" aria-labelledby="live-h">
-      <h2 class="sec-h" id="live-h">直播連結</h2>
-      <div class="slots">
-        <div class="slot slot-soon" aria-disabled="true"><span class="slot-t">即將更新</span></div><div class="slot slot-soon" aria-disabled="true"><span class="slot-t">即將更新</span></div><div class="slot slot-soon" aria-disabled="true"><span class="slot-t">即將更新</span></div>
+    <section class="acc">
+      <button type="button" class="acc-btn" id="btn-weekly" aria-expanded="false" aria-controls="acc-weekly">
+        <span class="acc-k">週報</span>
+        <span class="acc-chev" aria-hidden="true"></span>
+      </button>
+      <div class="acc-panel" id="acc-weekly" hidden>
+        <ul class="acc-list">
+          <li><a class="row row-week" href="./2026-W48/"><span class="lab">W48</span><span class="date">2026.11.25</span><span class="ttl">中性偏空 · 謹慎做空</span></a></li><li><a class="row row-week" href="./2026-W47/"><span class="lab">W47</span><span class="date">2026.11.18</span><span class="ttl">中性偏空 · 謹慎做空</span><span class="demo-badge">示範資料</span></a></li><li><a class="row row-week" href="./2026-W46/"><span class="lab">W46</span><span class="date">2026.11.11</span><span class="ttl">中性偏空 · 謹慎做空</span><span class="demo-badge">示範資料</span></a></li>
+        </ul>
+        <a class="acc-more" href="./weekly/">全部週報</a>
       </div>
     </section>
-    <section class="sec" aria-labelledby="week-h">
-      <h2 class="sec-h" id="week-h">週報</h2>
-      <a class="door" href="./weekly/">
-        <span class="slot-t">週報</span>
-        <span class="hint">查看各期週報</span>
-        <span class="meta">最新 W48 · 中性偏空 · 謹慎做空</span>
-      </a>
+    <section class="acc">
+      <button type="button" class="acc-btn" id="btn-live" aria-expanded="false" aria-controls="acc-live">
+        <span class="acc-k">直播連結</span>
+        <span class="acc-chev" aria-hidden="true"></span>
+      </button>
+      <div class="acc-panel" id="acc-live" hidden>
+        <ul class="cat-list">
+          <li><a class="cat" href="https://youtu.be/nOE--IrueOU" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 01</span></span><span class="cat-title">支撐壓力</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/ya_bJT3zT4o" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 02</span></span><span class="cat-title">趨勢與結構</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/yukZx6DNCKo" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 03</span></span><span class="cat-title">突破與假突破</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/73iCMLVO1i8" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 04</span></span><span class="cat-title">流動性與掃止損</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/-wp9Dm6uwxY" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 05</span></span><span class="cat-title">技術指標的用法</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/EQOpf4Pf9g8" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 06</span></span><span class="cat-title">多週期分析</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/I5WB85asT2A" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 07</span></span><span class="cat-title">制定自己的交易系統</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/4PspQgr17g4" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 08</span></span><span class="cat-title">中繼型態教學</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/IMW34-KEapc" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 09</span></span><span class="cat-title">頂底型態判斷</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/5QPXu2Jyj_I" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 10</span></span><span class="cat-title">交易其實是機率遊戲</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/cvG1goC8B8E" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 11</span></span><span class="cat-title">如何找到自己交易的優勢</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/Oeajtg6RKk0" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 12</span></span><span class="cat-title">形態回踩的判斷</span><span class="cat-go">觀看直播 <i>→</i></span></a></li><li><a class="cat" href="https://youtu.be/2L5HSvfvcEc" target="_blank" rel="noopener noreferrer"><span class="cat-head"><span class="cat-k">Session 13</span></span><span class="cat-title">如何建立一個setup</span><span class="cat-go">觀看直播 <i>→</i></span></a></li>
+        </ul>
+      </div>
     </section>
     <p class="foot">tych3n trading note</p>
   </div>
+  <script>
+  (function(){
+    var btns=document.querySelectorAll(".acc-btn");
+    for(var i=0;i<btns.length;i++){
+      btns[i].addEventListener("click",function(){
+        var open=this.getAttribute("aria-expanded")==="true";
+        var panel=document.getElementById(this.getAttribute("aria-controls"));
+        this.setAttribute("aria-expanded", open?"false":"true");
+        if(panel) panel.hidden=open;
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
