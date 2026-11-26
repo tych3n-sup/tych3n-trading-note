@@ -81,6 +81,32 @@ b{font-weight:600}
 .nav .nav-home{color:var(--champ);letter-spacing:.28em;padding-left:0}
 .nav{display:flex;align-items:stretch}
 .nav-inner{flex:1;min-width:0}
+.nav a.nav-menu{
+  flex:0 0 auto;align-self:stretch;
+  display:flex;align-items:center;
+  min-height:44px;
+  padding:0 14px 0 max(22px,env(safe-area-inset-left));
+  font-family:var(--display);font-weight:500;font-size:11px;
+  letter-spacing:.18em;text-transform:none;color:var(--champ);
+  border-right:.4px solid var(--line-g);
+  touch-action:manipulation;-webkit-tap-highlight-color:rgba(201,161,74,.18);
+  white-space:nowrap;
+}
+.nav a.nav-menu i{font-style:normal;margin-right:6px;letter-spacing:0}
+.nav a.nav-menu:focus,.nav a.nav-menu:hover{color:var(--ivory)}
+.nav:has(.nav-menu) .nav-inner{padding-left:14px}
+.menu-end{margin:40px 0 8px;text-align:center}
+.menu-end-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  box-sizing:border-box;width:min(100%,320px);
+  min-height:52px;padding:14px 22px;
+  font-family:var(--display);font-weight:500;font-size:14px;
+  letter-spacing:.2em;color:var(--champ);
+  border:.5px solid var(--champ);background:transparent;
+  touch-action:manipulation;-webkit-tap-highlight-color:rgba(201,161,74,.18);
+}
+.menu-end-btn i{font-style:normal;margin-right:8px;letter-spacing:0}
+.menu-end-btn:focus,.menu-end-btn:hover{background:rgba(201,161,74,.08);color:var(--ivory)}
 
 /* archive (past-issues) — only rendered when archive_issues is passed */
 .arch{flex:0 0 auto;display:flex;align-items:center;border-left:.4px solid var(--line-g);position:relative;z-index:46}
@@ -303,9 +329,18 @@ ol.next li span{display:inline-block;width:28px;font-family:var(--display);color
 /* Narrow screens: the 880px column goes full-bleed, and .hero/.sec padding shorthand
    zeroes wrap's side padding — so inset content here. Desktop look is unchanged. */
 @media(max-width:880px){
-  .wrap,.hero,.sec,.site-foot,.nav-inner{
+  .wrap,.hero,.sec,.site-foot{
     padding-left:max(22px, env(safe-area-inset-left));
     padding-right:max(22px, env(safe-area-inset-right));
+  }
+  .nav-inner{
+    padding-right:max(22px, env(safe-area-inset-right));
+  }
+  .nav:not(:has(.nav-menu)) .nav-inner{
+    padding-left:max(22px, env(safe-area-inset-left));
+  }
+  .nav a.nav-menu{
+    padding-left:max(22px, env(safe-area-inset-left));
   }
 }
 </style>
@@ -319,6 +354,7 @@ ol.next li span{display:inline-block;width:28px;font-family:var(--display);color
 
 
 <nav class="nav" aria-label="章節">
+  <a class="nav-menu" href="../demo/"><i>←</i>主選單</a>
   <div class="nav-inner">
     <a class="nav-home" href="#cover">tych3n</a>
     <a href="#s-recap">I 回顧</a>
@@ -497,6 +533,11 @@ ol.next li span{display:inline-block;width:28px;font-family:var(--display);color
   </div>
   <div class="sub"><span class="op-sc">Next</span><span class="sub-zh">下期追蹤</span></div>
   <ol class="next"><li><span>I</span>BTC 1H 劇本有沒有照走：60,000–60,700 chop → 假突破 60,751 → 跌回 59,800</li><li><span>II</span>BTC 日線 59,059 守不守；丟了就看 49,159</li><li><span>III</span>ETH 1,503 有沒有破；或反過來突破通道、收回 1,715–1,765</li><li><span>IV</span>黃金 3,500 / 3,443 的反應；白銀社群空單 39.5 有沒有到</li><li><span>V</span>PCE（11/25 21:30 台北）公布後，crypto 和金屬的反應</li></ol>
+  
+  <div class="menu-end">
+    <a class="menu-end-btn" href="../demo/"><i>←</i>主選單</a>
+  </div>
+  
 </section>
 
 <footer class="site-foot wrap"><span>tych3n trading note</span></footer>
